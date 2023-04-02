@@ -549,11 +549,11 @@ def main():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
                         chat_id, msg_id = map(int, f)
-                    msg = f"<b>Bot Restarted successfully on {date} at {time}!</b>\n"
-                    msg += f"<b>TIMEZONE: {TIMEZONE}\n"
+                    msg = f"Bot Restarted successfully on {date} at {time}!\n"
+                    msg += f"TIMEZONE: {TIMEZONE}\n"
                 else:
-                    msg = f"<b>Bot Restarted on {date} at {time}!\n</b>"
-                    msg += f"<b>TIMEZONE: {TIMEZONE}</b>\n"
+                    msg = f"Bot Restarted on {date} at {time}!\n"
+                    msg += f"TIMEZONE: {TIMEZONE}\n"
 
                 for tag, links in data.items():
                      msg += f"\n{tag}: "
@@ -581,11 +581,11 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        msg = f"<b>Restarted successfully on {date} at {time}!\nTIMEZONE: {TIMEZONE}</b>"
+        msg = f"Restarted successfully on {date} at {time}!\nTIMEZONE: {TIMEZONE}"
         bot.edit_message_text(msg, chat_id, msg_id)
         osremove(".restartmsg")
     elif not notifier_dict and AUTHORIZED_CHATS:
-        text = f"<b>Bot Restarted on {date} at {time}!\nTIMEZONE: {TIMEZONE}</b>"
+        text = f"Bot Restarted on {date} at {time}!\nTIMEZONE: {TIMEZONE}"
         for id_ in AUTHORIZED_CHATS:
             try:
                 bot.sendMessage(chat_id=id_, text=text, parse_mode=ParseMode.HTML)
