@@ -434,11 +434,11 @@ class MirrorLeechListener:
                 else:
                     msg += f'\n<b>├ Corrupted Files: </b>{typ}'
             if EMOJI_THEME is True:
-                msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰👤 #Leech_by: </b>{self.tag}\n\n'
+                msg += f'\n<b>├⌛ Elapsed Time:</b> {get_readable_time(time() - self.message.date.timestamp())}'
+                msg += f'\n<b>╰👤 #Lecch: </b>{self.user_id} aka {self.tag}\n\n'
             else: 
                 msg += f'\n<b>├ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰ #Leech_by: </b>{self.tag}\n\n'
+                msg += f'\n<b>╰ #Leech: </b>{self.user_id} aka {self.tag}\n\n'
 
 
 
@@ -501,11 +501,11 @@ class MirrorLeechListener:
                     msg += f'\n<b>├ SubFolders: </b>{folders}'
                     msg += f'\n<b>├ Files: </b>{files}'
             if EMOJI_THEME is True:
-                msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰👤 #Mirror_By: </b>{self.tag}\n\n'
+                msg += f'\n<b>├⌛ Elapsed Time:</b> {get_readable_time(time() - self.message.date.timestamp())}'
+                msg += f'\n<b>╰👤 #Mirror: </b>{self.user_id} aka {self.tag}\n\n'
             else:
                 msg += f'\n<b>├ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰ #Mirror_By: </b>{self.tag}\n\n' 
+                msg += f'\n<b>╰ #Mirror: </b>{self.user_id} aka {self.tag}\n\n' 
             buttons = ButtonMaker()
             link = short_url(link)
             if DISABLE_DRIVE_LINK is True and self.message.chat.type != 'private':
