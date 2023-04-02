@@ -254,22 +254,22 @@ def weebhelp(update, context):
     update.effective_message.reply_photo(IMAGE_URL, help_string, parse_mode=ParseMode.MARKDOWN)
 
 if ANILIST_ENABLED:
-    ANIME_HANDLER = CommandHandler("anime", anime,
+    ANIME_HANDLER = CommandHandler("anime2", anime,
                                         filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
-    CHARACTER_HANDLER = CommandHandler("character", character,
+    CHARACTER_HANDLER = CommandHandler("chara2", character,
                                         filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
-    MANGA_HANDLER = CommandHandler("manga", manga,
+    MANGA_HANDLER = CommandHandler("manga2", manga,
                                         filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
-    WEEBHELP_HANDLER = CommandHandler("weebhelp", weebhelp,
+    WEEBHELP_HANDLER = CommandHandler("weebhelp2", weebhelp,
                                         filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 else:
-    ANIME_HANDLER = CommandHandler("anime", anime,
+    ANIME_HANDLER = CommandHandler("anime2", anime,
                                         filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
-    CHARACTER_HANDLER = CommandHandler("character", character,
+    CHARACTER_HANDLER = CommandHandler("chara2", character,
                                         filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
-    MANGA_HANDLER = CommandHandler("manga", manga,
+    MANGA_HANDLER = CommandHandler("manga2", manga,
                                         filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
-    WEEBHELP_HANDLER = CommandHandler("weebhelp", weebhelp,
+    WEEBHELP_HANDLER = CommandHandler("weebhelp2", weebhelp,
                                         filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
 
 dispatcher.add_handler(ANIME_HANDLER)
