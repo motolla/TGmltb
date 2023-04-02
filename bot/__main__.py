@@ -540,7 +540,7 @@ def main():
     if SET_BOT_COMMANDS:
         bot.set_my_commands(botcmds)
     start_cleanup()
-    date = now.strftime('%d/%m/%y')
+    date = now.strftime('%a %d %b %Y')
     time = now.strftime('%I:%M:%S %p')
     notifier_dict = False
     if INCOMPLETE_TASK_NOTIFIER and DB_URI is not None:
@@ -549,11 +549,11 @@ def main():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
                         chat_id, msg_id = map(int, f)
-                    msg = f"Bot Restarted successfully on {date} at {time}!\n"
-                    msg += f"TIMEZONE: {TIMEZONE}\n"
+                    msg = f"<b>Bot Restarted successfully on {date} at {time}!</b>\n"
+                    msg += f"<b>TIMEZONE: {TIMEZONE}\n"
                 else:
-                    msg = f"Bot Restarted on {date} at {time}!\n"
-                    msg += f"TIMEZONE: {TIMEZONE}"
+                    msg = f"<b>Bot Restarted on {date} at {time}!\n</b>"
+                    msg += f"<b>TIMEZONE: {TIMEZONE}</b>\n"
 
                 for tag, links in data.items():
                      msg += f"\n{tag}: "
@@ -581,11 +581,11 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        msg = f"Restarted successfully on {date} at {time}!\nTIMEZONE: {TIMEZONE}"
+        msg = f"<b>Restarted successfully on {date} at {time}!\nTIMEZONE: {TIMEZONE}</b>"
         bot.edit_message_text(msg, chat_id, msg_id)
         osremove(".restartmsg")
     elif not notifier_dict and AUTHORIZED_CHATS:
-        text = f"Bot Restarted on {date} at {time}!\nTIMEZONE: {TIMEZONE}"
+        text = f"<b>Bot Restarted on {date} at {time}!\nTIMEZONE: {TIMEZONE}</b>"
         for id_ in AUTHORIZED_CHATS:
             try:
                 bot.sendMessage(chat_id=id_, text=text, parse_mode=ParseMode.HTML)
@@ -610,7 +610,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("💥𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝❗")
+    LOGGER.info("Bot On Duty!")
     signal(SIGINT, exit_clean_up)
 
 app.start()
