@@ -30,38 +30,38 @@ PAGES = 0
 
 class MirrorStatus:
     if EMOJI_THEME is True:
-        STATUS_UPLOADING = "📤 Upload"
-        STATUS_DOWNLOADING = "📥 Download"
-        STATUS_CLONING = "♻️ Clone"
-        STATUS_WAITING = "💤 Queue"
-        STATUS_PAUSED = "⛔️ Pause"
-        STATUS_ARCHIVING = "🔐 Archive"
-        STATUS_EXTRACTING = "📂 Extract"
-        STATUS_SPLITTING = "✂️ Split"
-        STATUS_CHECKING = "📝 CheckUp"
-        STATUS_SEEDING = "🌧 Seed"
+        STATUS_UPLOADING = "📤 Uploading"
+        STATUS_DOWNLOADING = "📥 Downloading"
+        STATUS_CLONING = "♻️ Cloning"
+        STATUS_WAITING = "💤 Waiting"
+        STATUS_PAUSED = "⛔️ Paused"
+        STATUS_ARCHIVING = "🔐 Archiving"
+        STATUS_EXTRACTING = "📂 Extracting"
+        STATUS_SPLITTING = "✂️ Spliting"
+        STATUS_CHECKING = "📝 Checking"
+        STATUS_SEEDING = "🌧 Seeding"
     else:
-        STATUS_UPLOADING = "Upload"
-        STATUS_DOWNLOADING = "Download"
-        STATUS_CLONING = "Clone"
-        STATUS_WAITING = "Queue"
-        STATUS_PAUSED = "Pause"
-        STATUS_ARCHIVING = "Archive"
-        STATUS_EXTRACTING = "Extract"
-        STATUS_SPLITTING = "Split"
-        STATUS_CHECKING = "CheckUp"
-        STATUS_SEEDING = "Seed"
+        STATUS_UPLOADING = "Uploading"
+        STATUS_DOWNLOADING = "Downloading"
+        STATUS_CLONING = "Cloning"
+        STATUS_WAITING = "Waiting"
+        STATUS_PAUSED = "Paused"
+        STATUS_ARCHIVING = "Archiving"
+        STATUS_EXTRACTING = "Extracting"
+        STATUS_SPLITTING = "Spliting"
+        STATUS_CHECKING = "Checking"
+        STATUS_SEEDING = "Seeding"
 
 class EngineStatus:
-    STATUS_ARIA = "Aria2c📶"
-    STATUS_GD = "Google Api♻️"
-    STATUS_MEGA = "MegaSDK⭕️"
-    STATUS_QB = "qBittorrent🦠"
-    STATUS_TG = "Pyrogram💥"
-    STATUS_YT = "YT-dlp🌟"
-    STATUS_EXT = "Extract | pExtract⚔️"
-    STATUS_SPLIT = "FFmpeg✂️"
-    STATUS_ZIP = "p7zip🛠"
+    STATUS_ARIA = "Aria2 🗜️"
+    STATUS_GD = "Google Api 📗"
+    STATUS_MEGA = "MegaSDK 🧰"
+    STATUS_QB = "qBittorrent 🧲"
+    STATUS_TG = "Pyrogram 📙"
+    STATUS_YT = "YT-dlp 🪛"
+    STATUS_EXT = "Extractor 🛠️"
+    STATUS_SPLIT = "FFmpeg 💽"
+    STATUS_ZIP = "p7zip 🔧"
 
     
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
@@ -177,8 +177,8 @@ def get_readable_message():
                 globals()['COUNT'] -= STATUS_LIMIT
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
-            msg += f"<b>╭ Status: <a href='{download.message.link}'>{download.status()}</a></b>"
-            msg += f"\n<b>├ Filename:</b><code> {escape(str(download.name()))}</code>"
+            msg += f"<b>╭ Filename:</b><code> {escape(str(download.name()))}</code>"
+            msg += f"\n<b>├ Status: <a href='{download.message.link}'>{download.status()}</a></b>"
             if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_SPLITTING]:
                 if EMOJI_THEME is True:
                     msg += f"\n<b>├</b>{get_progress_bar_string(download)} {download.progress()}"
