@@ -549,22 +549,18 @@ def main():
                 if ospath.isfile(".restartmsg"):
                     with open(".restartmsg") as f:
                         chat_id, msg_id = map(int, f)
-                    msg = f"😎Restarted successfully❗\n"
-                    msg += f"📅DATE: {date}\n"
-                    msg += f"⌚TIME: {time}\n"
-                    msg += f"🌐TIMEZONE: {TIMEZONE}\n"
+                    msg = f"Bot Restarted successfully on {date} at {time}!\n"
+                    msg += f"TIMEZONE: {TIMEZONE}\n"
                 else:
-                    msg = f"😎Bot Restarted!\n"
-                    msg += f"📅DATE: {date}\n"
-                    msg += f"⌚TIME: {time}\n"
-                    msg += f"🌐TIMEZONE: {TIMEZONE}"
+                    msg = f"Bot Restarted on {date} at {time}!\n"
+                    msg += f"TIMEZONE: {TIMEZONE}"
 
                 for tag, links in data.items():
                      msg += f"\n{tag}: "
                      for index, link in enumerate(links, start=1):
                          msg += f" <a href='{link}'>{index}</a> |"
                          if len(msg.encode()) > 4000:
-                             if '😎Restarted successfully❗' in msg and cid == chat_id:
+                             if 'Restarted successfully' in msg and cid == chat_id:
                                  bot.editMessageText(msg, chat_id, msg_id, parse_mode='HTML', disable_web_page_preview=True)
                                  osremove(".restartmsg")
                              else:
@@ -573,7 +569,7 @@ def main():
                                  except Exception as e:
                                      LOGGER.error(e)
                              msg = ''
-                if '😎Restarted successfully❗' in msg and cid == chat_id:
+                if 'Restarted successfully' in msg and cid == chat_id:
                      bot.editMessageText(msg, chat_id, msg_id, parse_mode='HTML', disable_web_page_preview=True)
                      osremove(".restartmsg")
                 else:
@@ -585,11 +581,11 @@ def main():
     if ospath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        msg = f"😎Restarted successfully❗\n📅DATE: {date}\n⌚TIME: {time}\n🌐TIMEZONE: {TIMEZONE}\n"
+        msg = f"Restarted successfully on {date} at {time}!\nTIMEZONE: {TIMEZONE}"
         bot.edit_message_text(msg, chat_id, msg_id)
         osremove(".restartmsg")
     elif not notifier_dict and AUTHORIZED_CHATS:
-        text = f"😎Bot Restarted❗ \n📅DATE: {date} \n⌚TIME: {time} \n🌐TIMEZONE: {TIMEZONE}"
+        text = f"Bot Restarted on {date} at {time}!\nTIMEZONE: {TIMEZONE}"
         for id_ in AUTHORIZED_CHATS:
             try:
                 bot.sendMessage(chat_id=id_, text=text, parse_mode=ParseMode.HTML)
