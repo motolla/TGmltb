@@ -305,6 +305,7 @@ def ping(update, context):
         reply = sendMessage("Starting_Ping ", context.bot, update.message)
         end_time = int(round(time() * 1000))
         editMessage(f'{end_time - start_time} ms ', reply)
+        deleteMessage(context.bot, update.message)
 
 def log(update, context):
     sendLogFile(context.bot, update.message)
