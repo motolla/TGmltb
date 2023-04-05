@@ -206,9 +206,9 @@ def _clone(message, bot):
                         sendMarkup(msg + botpm, bot, message, buttons.build_menu(2))
                 else:
                     if EMOJI_THEME is True:
-                        cc = f'\n<b>╰✅ Completed: </b>#clone|#id{user_id}\n\n'
+                        cc = f'\n<b>╰✅ Completed: </b>#clone|#id{self.user_id}\n\n'
                     else:
-                        cc = f'\n<b>╰ Completed: </b>#clone|#id{user_id}\n\n'
+                        cc = f'\n<b>╰ Completed: </b>#clone|#id{self.user_id}\n\n'
                     if PICS:
                         sendPhoto(result + cc, bot, message, random.choice(PICS), button)
                     else:
@@ -250,9 +250,9 @@ def _clone(message, bot):
                                 sendMarkup(msg + botpm, bot, message, buttons.build_menu(2))
                         else:
                             if EMOJI_THEME is True:
-                                cc = f'\n<b>╰✅ Completed: </b>#clone|#id{user_id}\n\n'
+                                cc = f'\n<b>╰✅ Completed: </b>#clone|#id{self.user_id}\n\n'
                             else:
-                                cc = f'\n<b>╰ Completed: </b>#clone|#id{user_id}\n\n'
+                                cc = f'\n<b>╰ Completed: </b>#clone|#id{self.user_id}\n\n'
                             if PICS:
                                 sendPhoto(result + cc, bot, message, random.choice(PICS), button)
                             else:
